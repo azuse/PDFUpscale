@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using CommandLine;
+using PDFUpscale.Properties;
 
 namespace PDFUpscale;
 
@@ -31,7 +32,7 @@ public static class Program
         }
         else
         {
-            throw new FileNotFoundException($"找不到{Option.Input}", Option.Input);
+            throw new FileNotFoundException($"{Text.CannotFound} {Option.Input}", Option.Input);
         }
     }
 

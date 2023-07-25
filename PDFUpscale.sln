@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFUpscale", "PDFUpscale.csproj", "{BE86C782-A3DE-4B69-8254-52CD740F10B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PDFUpscale", "PDFUpscale.csproj", "{BE86C782-A3DE-4B69-8254-52CD740F10B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_PrefixTranslations = False
+		RESX_SaveFilesImmediatelyUponChange = True
 		SolutionGuid = {B9389853-2F84-4661-AA97-44AC08F4317F}
+		RESX_SortFileContentOnSave = True
 	EndGlobalSection
 EndGlobal

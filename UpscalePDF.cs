@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using PDFUpscale.Properties;
 using Spire.Pdf;
 using Spire.Pdf.Graphics;
 using Spire.Pdf.Utilities;
@@ -11,7 +12,7 @@ public static class UpscalePDF
     public static void Upscale(string file, string dest)
     {
         FileInfo pdf = new(file);
-        Console.WriteLine("Upscale " + pdf.Name);
+        Console.WriteLine($"{Text.Upscale} {pdf.Name}");
 
         DirectoryInfo imageDir = new($"{pdf.Directory?.FullName}/__PDFUpscaleTemp");
         string imageDirPath = imageDir.FullName;
@@ -19,7 +20,7 @@ public static class UpscalePDF
         ExtractImage.Extract(pdf.Name, imageDirPath);
         foreach (FileInfo image in imageDir.GetFiles("*.png"))
         {
-            Console.WriteLine($"\tUpscale image {Path.GetFileNameWithoutExtension(image.FullName)}");
+            Console.WriteLine($"\t{Text.UpscaleImage} {Path.GetFileNameWithoutExtension(image.FullName)}");
             UpscaleImage.Upscale(image.FullName);
         }
 
