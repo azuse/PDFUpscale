@@ -42,7 +42,7 @@ public static class Program
             Option.Model = Options.Models[2];
         DirectoryInfo directory = new(Option.Input);
         foreach (FileInfo file in directory.GetFiles("*.png", SearchOption.TopDirectoryOnly))
-            UpscaleImage.Upscale(file.FullName, $"{Option.Output}/Upscale_{file.Name}");
+            UpscaleImage.Upscale(file.FullName);
 
     }
 }

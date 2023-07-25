@@ -4,12 +4,12 @@ namespace PDFUpscale;
 
 public static class UpscaleImage
 {
-    public static void Upscale(string image, string dest)
+    public static void Upscale(string image)
     {
         Process? process = Process.Start(new ProcessStartInfo
         {
             FileName = "realesrgan.exe",
-            Arguments = $"-i \"{image}\" -o \"{dest}\" -n {Program.Option?.Model} -s {Program.Option?.Scale} -f png",
+            Arguments = $"-i \"{image}\" -o \"{image}\" -n {Program.Option?.Model} -s {Program.Option?.Scale} -f png",
             UseShellExecute = false,
             CreateNoWindow = true
         });

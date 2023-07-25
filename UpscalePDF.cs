@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
-using Aspose.Pdf;
+using Spire.Pdf;
+using Spire.Pdf.Graphics;
+using Spire.Pdf.Utilities;
 
 namespace PDFUpscale;
 
@@ -18,21 +20,21 @@ public static class UpscalePDF
         foreach (FileInfo image in imageDir.GetFiles("*.png"))
         {
             Console.WriteLine($"\tUpscale image {Path.GetFileNameWithoutExtension(image.FullName)}");
-            UpscaleImage.Upscale(image.FullName, $"{imageDirPath}/Upscale_{image.Name}");
+            UpscaleImage.Upscale(image.FullName);
         }
 
-        Document result = new(file);
+        PdfDocument result = new(file);
         int count = 0;
-        for (int i = 1; i <= result.Pages.Count; i++)
+        PdfImageHelper helper = new( );
+        foreach (PdfPageBase page in result.Pages)
         {
-            for (int j = 1; j <= result.Pages[i].Resources.Images.Count; j++)
+            foreach (PdfImageInfo image in helper.GetImagesInfo(page))
             {
-                FileStream image = new($"{imageDirPath}/{count.ToString( ).PadLeft(3, '0')}.png", FileMode.Open);
-                result.Pages[i].Resources.Images.Replace(j, image);
-                image.Close( );
+                string path = $"{imageDirPath}/{count.ToString( ).PadLeft(3, '0')}.png";
+                helper.ReplaceImage(image, PdfImage.FromFile(path));
                 count++;
             }
         }
-        result.Save(dest, SaveFormat.Pdf);
+        result.SaveToFile(dest, FileFormat.PDF);
     }
 }
