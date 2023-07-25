@@ -8,7 +8,7 @@ public static class UpscaleImage
     {
         Process? process = Process.Start(new ProcessStartInfo
         {
-            FileName = "realesrgan-ncnn-vulkan.exe",
+            FileName = "realesrgan.exe",
             Arguments = $"-i \"{image}\" -o \"{dest}\" -n {Program.Option?.Model} -s {Program.Option?.Scale} -f png",
             UseShellExecute = false,
             CreateNoWindow = true

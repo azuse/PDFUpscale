@@ -19,15 +19,19 @@ public static class Program
         Option = option;
         if (!Options.Models.Contains(Option.Model))
             Option.Model = Options.Models[2];
-        if (Utils.IsFile(Option.Input))
+        if (File.Exists(Option.Input))
         {
             UpscalePDF.Upscale(Option.Input, Option.Output);
         }
-        else
+        else if (Directory.Exists(Option.Input))
         {
             DirectoryInfo directory = new(Option.Input);
             foreach (FileInfo file in directory.GetFiles("*.pdf", SearchOption.TopDirectoryOnly))
                 UpscalePDF.Upscale(file.FullName, $"{Option.Output}/Upscale_{file.Name}");
+        }
+        else
+        {
+            throw new FileNotFoundException($"找不到{Option.Input}", Option.Input);
         }
     }
 

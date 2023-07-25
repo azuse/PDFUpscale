@@ -5,9 +5,6 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
-        <None Update="Command Line.md">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
         <None Update="models\realesr-animevideov3-x2.bin">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
@@ -49,7 +46,7 @@
         </None>
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="Aspose.PDF" Version="23.7.0" />
         <PackageReference Include="CommandLineParser" Version="2.9.1" />
-        <PackageReference Include="Spire.PDF" Version="9.7.14" />
     </ItemGroup>
 </Project>
