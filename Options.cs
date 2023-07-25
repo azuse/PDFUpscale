@@ -1,4 +1,5 @@
-﻿using CommandLine;
+﻿#pragma warning disable CS8618
+using CommandLine;
 
 namespace PDFUpscale;
 
@@ -18,8 +19,11 @@ public class Options
     public string Output { get; set; }
 
     [Option('m', "model", Default = "realesrgan-x4plus-anime", Required = false, HelpText = "使用的模型")]
-    public string? Model { get; set; }
+    public string Model { get; set; } = "realesrgan-x4plus-anime";
 
     [Option('s', "scale", Default = 4, Required = false, HelpText = "放大倍数")]
-    public int Scale { get; set; }
+    public int Scale { get; set; } = 4;
+
+    [Option('g', "gpu", Default = "auto", Required = false, HelpText = "所用 GPU 序号")]
+    public string GPU { get; set; } = "auto";
 }

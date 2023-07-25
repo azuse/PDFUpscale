@@ -7,7 +7,7 @@ namespace PDFUpscale;
 
 public static class Program
 {
-    public static Options? Option { get; set; }
+    public static Options Option { get; set; } = new Options( );
 
     public static void Main(string[] args)
     {
