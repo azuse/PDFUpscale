@@ -120,6 +120,9 @@
   <data name="CannotFound" xml:space="preserve">
     <value>找不到</value>
   </data>
+  <data name="Merging" xml:space="preserve">
+    <value>正在合并</value>
+  </data>
   <data name="Upscale" xml:space="preserve">
     <value>正在超分辨率</value>
   </data>

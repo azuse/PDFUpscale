@@ -6,9 +6,8 @@ namespace PDFUpscale;
 
 public static class ExtractImage
 {
-    public static void Extract(string file, string dest)
+    public static void Extract(PdfDocument pdf, string dest)
     {
-        PdfDocument pdf = new(file);
         int count = 0;
         for (int i = 0; i < pdf.Pages.Count; i++)
         {

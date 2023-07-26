@@ -9,25 +9,24 @@ namespace PDFUpscale;
 
 public static class UpscalePDF
 {
-    public static void Upscale(string file, string dest)
+    public static void Upscale(FileInfo file, string dest)
     {
-        FileInfo pdf = new(file);
-        Console.WriteLine($"{Text.Upscale} {pdf.Name}");
+        PdfDocument pdf = new(file.FullName);
+        Console.WriteLine($"{Text.Upscale} {file.Name}");
 
-        DirectoryInfo imageDir = new($"{pdf.Directory?.FullName}/__PDFUpscaleTemp");
+        DirectoryInfo imageDir = new($"{file.Directory?.FullName}/__PDFUpscaleTemp");
         string imageDirPath = imageDir.FullName;
         Directory.CreateDirectory(imageDirPath);
-        ExtractImage.Extract(pdf.Name, imageDirPath);
+        ExtractImage.Extract(pdf, imageDirPath);
         foreach (FileInfo image in imageDir.GetFiles("*.png"))
         {
             Console.WriteLine($"\t{Text.UpscaleImage} {Path.GetFileNameWithoutExtension(image.FullName)}");
             UpscaleImage.Upscale(image.FullName);
         }
 
-        PdfDocument result = new(file);
         int count = 0;
         PdfImageHelper helper = new( );
-        foreach (PdfPageBase page in result.Pages)
+        foreach (PdfPageBase page in pdf.Pages)
         {
             foreach (PdfImageInfo image in helper.GetImagesInfo(page))
             {
@@ -36,6 +35,6 @@ public static class UpscalePDF
                 count++;
             }
         }
-        result.SaveToFile(dest, FileFormat.PDF);
+        pdf.SaveToFile(dest, FileFormat.PDF);
     }
 }

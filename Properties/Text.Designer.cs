@@ -70,6 +70,15 @@ namespace PDFUpscale.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Merging 的本地化字符串。
+        /// </summary>
+        internal static string Merging {
+            get {
+                return ResourceManager.GetString("Merging", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Upscaling 的本地化字符串。
         /// </summary>
         internal static string Upscale {

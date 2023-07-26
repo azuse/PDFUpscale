@@ -22,13 +22,13 @@ public static class Program
             Option.Model = Options.Models[2];
         if (File.Exists(Option.Input))
         {
-            UpscalePDF.Upscale(Option.Input, Option.Output);
+            UpscalePDF.Upscale(new FileInfo(Option.Input), Option.Output);
         }
         else if (Directory.Exists(Option.Input))
         {
             DirectoryInfo directory = new(Option.Input);
             foreach (FileInfo file in directory.GetFiles("*.pdf", SearchOption.TopDirectoryOnly))
-                UpscalePDF.Upscale(file.FullName, $"{Option.Output}/Upscale_{file.Name}");
+                UpscalePDF.Upscale(file, $"{Option.Output}/Upscale_{file.Name}");
         }
         else
         {

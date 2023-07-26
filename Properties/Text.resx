@@ -97,13 +97,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CannotFound" xml:space="preserve">
+    <value>Cannot found</value>
+  </data>
+  <data name="Merging" xml:space="preserve">
+    <value>Merging</value>
+  </data>
   <data name="Upscale" xml:space="preserve">
     <value>Upscaling</value>
   </data>
   <data name="UpscaleImage" xml:space="preserve">
     <value>Upscaling image</value>
-  </data>
-  <data name="CannotFound" xml:space="preserve">
-    <value>Cannot found</value>
   </data>
 </root>
