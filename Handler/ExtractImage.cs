@@ -8,7 +8,7 @@ public static class ExtractImage
 {
     public static void Extract(PdfDocument pdf, string dest)
     {
-        int count = 0;
+        int count = 1;
         for (int i = 0; i < pdf.Pages.Count; i++)
         {
             Image[] images = pdf.Pages[i].ExtractImages( );

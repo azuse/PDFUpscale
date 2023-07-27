@@ -24,7 +24,7 @@ public static class UpscalePDF
             (image) => Console.WriteLine($"\t{Text.UpscaleImage} {Path.GetFileNameWithoutExtension(image.FullName)}")
         );
 
-        int count = 0;
+        int count = 1;
         PdfImageHelper helper = new( );
         foreach (PdfPageBase page in pdf.Pages)
         {

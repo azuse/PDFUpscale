@@ -12,11 +12,14 @@ public static class UpscaleImage
     {
         for (int i = 0; i < images.Count; i += Program.Option.Thread)
         {
-            Parallel.ForEach(images.GetRange(i, i + Program.Option.Thread), image =>
-            {
-                action(image);
-                Exec(image.FullName);
-            });
+            Parallel.ForEach(
+                images.GetRange(i, Math.Min(Program.Option.Thread, images.Count - i)),
+                image =>
+                {
+                    action(image);
+                    Exec(image.FullName);
+                }
+            );
         }
     }
 

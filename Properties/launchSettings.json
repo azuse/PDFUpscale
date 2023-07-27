@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "PDFUpscale": {
+      "commandName": "Project",
+      "commandLineArgs": "-i sam.pdf -o 01.pdf -t 2",
+      "workingDirectory": "C:\\Users\\Administrator\\Pictures"
+    }
+  }
+}
