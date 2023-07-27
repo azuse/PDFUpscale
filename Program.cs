@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using CommandLine;
+using PDFUpscale.Handler;
 using PDFUpscale.Properties;
 
 namespace PDFUpscale;
@@ -43,7 +44,7 @@ public static class Program
             Option.Model = Options.Models[2];
         DirectoryInfo directory = new(Option.Input);
         UpscaleImage.Batch(
-            directory.GetFiles("*.png", SearchOption.TopDirectoryOnly),
+            directory.GetFiles("*.png", SearchOption.TopDirectoryOnly).ToList( ),
             (image) => Console.WriteLine($"{Text.UpscaleImage} {image.Name}")
         );
 

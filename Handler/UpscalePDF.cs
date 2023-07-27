@@ -1,11 +1,12 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using PDFUpscale.Properties;
 using Spire.Pdf;
 using Spire.Pdf.Graphics;
 using Spire.Pdf.Utilities;
 
-namespace PDFUpscale;
+namespace PDFUpscale.Handler;
 
 public static class UpscalePDF
 {
@@ -19,7 +20,7 @@ public static class UpscalePDF
         Directory.CreateDirectory(imageDirPath);
         ExtractImage.Extract(pdf, imageDirPath);
         UpscaleImage.Batch(
-            imageDir.GetFiles("*.png"),
+            imageDir.GetFiles("*.png").ToList( ),
             (image) => Console.WriteLine($"\t{Text.UpscaleImage} {Path.GetFileNameWithoutExtension(image.FullName)}")
         );
 

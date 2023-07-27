@@ -2,7 +2,7 @@
 using System.Drawing.Imaging;
 using Spire.Pdf;
 
-namespace PDFUpscale;
+namespace PDFUpscale.Handler;
 
 public static class ExtractImage
 {

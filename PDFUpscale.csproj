@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net6.0-windows</TargetFramework>
+        <TargetFramework>net7.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <AnalysisLevel>latest-recommended</AnalysisLevel>
         <NeutralLanguage>en-US</NeutralLanguage>
@@ -50,7 +50,7 @@
         <None Update="models\realesrgan-x4plus.param">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
-        <None Update="realesrgan-ncnn-vulkan.exe">
+        <None Update="realesrgan.exe">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
         <None Update="vcomp140.dll">
@@ -62,6 +62,9 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="CommandLineParser" Version="2.9.1" />
-        <PackageReference Include="Spire.PDF" Version="9.7.14" />
+        <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+        <Reference Include="Spire.Pdf">
+            <HintPath>Properties\Spire.Pdf.dll</HintPath>
+        </Reference>
     </ItemGroup>
 </Project>
