@@ -9,20 +9,19 @@ namespace PDFUpscale;
 
 public static class UpscalePDF
 {
-    public static void Upscale(FileInfo file, string dest)
+    public static void Exec(FileInfo file, string dest)
     {
         PdfDocument pdf = new(file.FullName);
         Console.WriteLine($"{Text.Upscale} {file.Name}");
 
-        DirectoryInfo imageDir = new($"{file.Directory?.FullName}/__PDFUpscaleTemp");
+        DirectoryInfo imageDir = new($"{file.Directory?.FullName}/__{file.Name}.extracted");
         string imageDirPath = imageDir.FullName;
         Directory.CreateDirectory(imageDirPath);
         ExtractImage.Extract(pdf, imageDirPath);
-        foreach (FileInfo image in imageDir.GetFiles("*.png"))
-        {
-            Console.WriteLine($"\t{Text.UpscaleImage} {Path.GetFileNameWithoutExtension(image.FullName)}");
-            UpscaleImage.Upscale(image.FullName);
-        }
+        UpscaleImage.Batch(
+            imageDir.GetFiles("*.png"),
+            (image) => Console.WriteLine($"\t{Text.UpscaleImage} {Path.GetFileNameWithoutExtension(image.FullName)}")
+        );
 
         int count = 0;
         PdfImageHelper helper = new( );

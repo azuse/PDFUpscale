@@ -11,6 +11,7 @@
 |  --model  |  -m   |  否   | realesrgan-x4plus-anime |    使用的模型     |
 |  --scale  |  -s   |  否   |            4            |     放大倍数      |
 |   --gpu   |  -g   |  否   |          auto           |   使用 GPU 序号   |
+| --thread  |  -t   |  否   |            1            |  图片处理并发数   |
 |  --help   |  无   |  否   |                         |   展示帮助屏幕    |
 | --version |  无   |  否   |                         |   显示版本信息    |
 

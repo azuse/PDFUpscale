@@ -26,4 +26,7 @@ public class Options
 
     [Option('g', "gpu", Default = "auto", Required = false, HelpText = "所用 GPU 序号")]
     public string GPU { get; set; } = "auto";
+
+    [Option('t', "thread", Default = 1, Required = false, HelpText = "图片处理并发数")]
+    public int Thread { get; set; } = 1;
 }

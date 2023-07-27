@@ -22,13 +22,13 @@ public static class Program
             Option.Model = Options.Models[2];
         if (File.Exists(Option.Input))
         {
-            UpscalePDF.Upscale(new FileInfo(Option.Input), Option.Output);
+            UpscalePDF.Exec(new FileInfo(Option.Input), Option.Output);
         }
         else if (Directory.Exists(Option.Input))
         {
             DirectoryInfo directory = new(Option.Input);
             foreach (FileInfo file in directory.GetFiles("*.pdf", SearchOption.TopDirectoryOnly))
-                UpscalePDF.Upscale(file, $"{Option.Output}/Upscale_{file.Name}");
+                UpscalePDF.Exec(file, $"{Option.Output}/Upscale_{file.Name}");
         }
         else
         {
@@ -42,8 +42,10 @@ public static class Program
         if (!Options.Models.Contains(Option.Model))
             Option.Model = Options.Models[2];
         DirectoryInfo directory = new(Option.Input);
-        foreach (FileInfo file in directory.GetFiles("*.png", SearchOption.TopDirectoryOnly))
-            UpscaleImage.Upscale(file.FullName);
+        UpscaleImage.Batch(
+            directory.GetFiles("*.png", SearchOption.TopDirectoryOnly),
+            (image) => Console.WriteLine($"{Text.UpscaleImage} {image.Name}")
+        );
 
     }
 }

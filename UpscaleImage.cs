@@ -1,10 +1,25 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 
 namespace PDFUpscale;
 
 public static class UpscaleImage
 {
-    public static void Upscale(string image)
+    public static void Batch(IEnumerable<FileInfo> images, Action<FileInfo> action)
+    {
+        int threads = 0;
+        foreach (FileInfo image in images)
+        {
+            action(image);
+            Exec(image.FullName, threads >= Program.Option.Thread);
+            threads++;
+            threads %= Program.Option.Thread;
+        }
+    }
+
+    public static void Exec(string image, bool wait)
     {
         Process? process = Process.Start(new ProcessStartInfo
         {
@@ -13,6 +28,7 @@ public static class UpscaleImage
             UseShellExecute = false,
             CreateNoWindow = true
         });
-        process?.WaitForExit( );
+        if (wait)
+            process?.WaitForExit( );
     }
 }
