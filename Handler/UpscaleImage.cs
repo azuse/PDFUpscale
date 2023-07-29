@@ -26,13 +26,14 @@ public static class UpscaleImage
 
     public static void Exec(string image)
     {
+        string runtime = AppDomain.CurrentDomain.SetupInformation.ApplicationBase!;
         string executable = "";
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            executable = @".\runtime\realesrgan.exe";
+            executable = @$"{runtime}\runtime\realesrgan.exe";
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            executable = @"./runtime/realesrgan-linux";
+            executable = @$"{runtime}/runtime/realesrgan-linux";
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-            executable = @"./runtime/realesrgan-macos";
+            executable = @$"{runtime}/runtime/realesrgan-macos";
         Process? process = Process.Start(new ProcessStartInfo
         {
             FileName = executable,

@@ -17,7 +17,7 @@
 
 ## 运行时
 
-在非 Windows 平台运行本程序需要 libgpilus。
+在非 Windows 平台运行本程序需要 libgdilus。
 
 macOS:
 
@@ -26,10 +26,16 @@ brew install glib cairo libexif libjpeg giflib libtiff autoconf libtool automake
 brew link gettext --
 ```
 
-基于 Debian 的 Linux:
+类 Debian:
 
 ```bash
-sudo apt-get install libgif-dev autoconf libtool automake build-essential gettext libglib2.0-dev libcairo2-dev libtiff-dev libexif-dev
+sudo apt install libgif-dev autoconf libtool automake build-essential gettext libglib2.0-dev libcairo2-dev libtiff-dev libexif-dev
+```
+
+类 CentOS:
+```bash
+yum install libgdiplus
+
 ```
 
 ## 构建

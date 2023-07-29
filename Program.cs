@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using CommandLine;
 using PDFUpscale.Handler;
 using PDFUpscale.Properties;
@@ -14,17 +13,6 @@ public static class Program
 
     public static void Main(string[] args)
     {
-        if (RuntimeInformation.OSArchitecture
-            is not Architecture.X86 or Architecture.X64)
-        {
-            Console.WriteLine(Text.NotSupportArchitecture);
-            return;
-        }
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
-        {
-            Console.WriteLine(Text.NotSupportPlatform);
-            return;
-        }
         Parser.Default.ParseArguments<Options>(args).WithParsed(Run);
     }
 
