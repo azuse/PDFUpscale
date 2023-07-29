@@ -103,6 +103,12 @@
   <data name="Merging" xml:space="preserve">
     <value>Merging</value>
   </data>
+  <data name="NotSupportArchitecture" xml:space="preserve">
+    <value>Please run it on x86-based machine.</value>
+  </data>
+  <data name="NotSupportPlatform" xml:space="preserve">
+    <value>Please run it on Windows, Linux or macOS.</value>
+  </data>
   <data name="Upscale" xml:space="preserve">
     <value>Upscaling</value>
   </data>

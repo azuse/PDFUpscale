@@ -15,6 +15,21 @@
 |  --help   |  无   |  否   |                         |   展示帮助屏幕    |
 | --version |  无   |  否   |                         |   显示版本信息    |
 
+## 运行时
+
+在非 Windows 平台运行本程序需要 libgpilus。
+
+macOS:
+```bash
+brew install glib cairo libexif libjpeg giflib libtiff autoconf libtool automake pango pkg-config
+brew link gettext --
+```
+
+基于 Debian 的 Linux:
+```bash
+sudo apt-get install libgif-dev autoconf libtool automake build-essential gettext libglib2.0-dev libcairo2-dev libtiff-dev libexif-dev
+```
+
 ## 构建
 
 运行`dotnet build`以构建

@@ -79,6 +79,24 @@ namespace PDFUpscale.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Please run it on x86-based machine. 的本地化字符串。
+        /// </summary>
+        internal static string NotSupportArchitecture {
+            get {
+                return ResourceManager.GetString("NotSupportArchitecture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Please run it on Windows, Linux or macOS. 的本地化字符串。
+        /// </summary>
+        internal static string NotSupportPlatform {
+            get {
+                return ResourceManager.GetString("NotSupportPlatform", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Upscaling 的本地化字符串。
         /// </summary>
         internal static string Upscale {

@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿#pragma warning disable CA1416
+
+using System.Drawing;
 using System.Drawing.Imaging;
 using Spire.Pdf;
 

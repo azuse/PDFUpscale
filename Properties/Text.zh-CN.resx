@@ -123,6 +123,12 @@
   <data name="Merging" xml:space="preserve">
     <value>正在合并</value>
   </data>
+  <data name="NotSupportArchitecture" xml:space="preserve">
+    <value>请在基于 x86 架构的机器上运行。</value>
+  </data>
+  <data name="NotSupportPlatform" xml:space="preserve">
+    <value>请在 Windows、Linux 或 macOS 上运行</value>
+  </data>
   <data name="Upscale" xml:space="preserve">
     <value>正在超分辨率</value>
   </data>
