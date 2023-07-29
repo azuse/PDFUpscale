@@ -14,7 +14,8 @@ public static class Program
 
     public static void Main(string[] args)
     {
-        if (RuntimeInformation.OSArchitecture != Architecture.X86)
+        if (RuntimeInformation.OSArchitecture
+            is not Architecture.X86 or Architecture.X64)
         {
             Console.WriteLine(Text.NotSupportArchitecture);
             return;
@@ -55,7 +56,7 @@ public static class Program
             Option.Model = Options.Models[2];
         DirectoryInfo directory = new(Option.Input);
         UpscaleImage.Batch(
-            directory.GetFiles("*.png", SearchOption.TopDirectoryOnly).ToList( ),
+            directory.GetFiles("*.png", SearchOption.AllDirectories).ToList( ),
             (image) => Console.WriteLine($"{Text.UpscaleImage} {image.Name}")
         );
 

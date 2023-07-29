@@ -5,7 +5,6 @@
         <Nullable>enable</Nullable>
         <AnalysisLevel>latest-recommended</AnalysisLevel>
         <NeutralLanguage>en-US</NeutralLanguage>
-        <PublishReadyToRun>true</PublishReadyToRun>
     </PropertyGroup>
     <ItemGroup>
         <Compile Update="Properties\Text.Designer.cs">
