@@ -20,18 +20,26 @@
 在非 Windows 平台运行本程序需要 libgpilus。
 
 macOS:
+
 ```bash
 brew install glib cairo libexif libjpeg giflib libtiff autoconf libtool automake pango pkg-config
 brew link gettext --
 ```
 
 基于 Debian 的 Linux:
+
 ```bash
 sudo apt-get install libgif-dev autoconf libtool automake build-essential gettext libglib2.0-dev libcairo2-dev libtiff-dev libexif-dev
 ```
 
 ## 构建
 
-运行`dotnet build`以构建
+|          Windows          |         Linux         |
+| :-----------------------: | :-------------------: |
+| ![Windows][Build Windows] | ![Linux][Build Linux] |
+
+运行`dotnet build`以自主构建
 
 [Real-ESRGAN]: https://github.com/xinntao/Real-ESRGAN
+[Build Windows]: https://img.shields.io/github/actions/workflow/status/KaiHuaDou/PDFUpscale/build-windows.yml
+[Build Linux]: https://img.shields.io/github/actions/workflow/status/KaiHuaDou/PDFUpscale/build-linux.yml

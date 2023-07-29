@@ -5,6 +5,12 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PDFUpscale", "PDFUpscale.csproj", "{BE86C782-A3DE-4B69-8254-52CD740F10B7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{BA8F03AF-4F35-4432-A35C-5D12292E51C4}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build-linux.yml = .github\workflows\build-linux.yml
+		.github\workflows\build-windows.yml = .github\workflows\build-windows.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +26,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_PrefixTranslations = False
-		RESX_SaveFilesImmediatelyUponChange = True
-		SolutionGuid = {B9389853-2F84-4661-AA97-44AC08F4317F}
 		RESX_SortFileContentOnSave = True
+		SolutionGuid = {B9389853-2F84-4661-AA97-44AC08F4317F}
+		RESX_SaveFilesImmediatelyUponChange = True
+		RESX_PrefixTranslations = False
 	EndGlobalSection
 EndGlobal
