@@ -18,11 +18,15 @@ public static class UpscalePDF
         DirectoryInfo imageDir = new($"{file.Directory?.FullName}/__{file.Name}.extracted");
         string imageDirPath = imageDir.FullName;
         Directory.CreateDirectory(imageDirPath);
-        ExtractImage.Extract(pdf, imageDirPath);
-        UpscaleImage.Batch(
-            imageDir.GetFiles("*.png").ToList( ),
-            (image) => Console.WriteLine($"\t{Text.UpscaleImage} {Path.GetFileNameWithoutExtension(image.FullName)}")
-        );
+
+        if (!Program.Option.MergeOnly)
+        {
+            ExtractImage.Extract(pdf, imageDirPath);
+            UpscaleImage.Batch(
+                imageDir.GetFiles("*.png").ToList( ),
+                (image) => Console.WriteLine($"\t{Text.UpscaleImage} {Path.GetFileNameWithoutExtension(image.FullName)}")
+            );
+        }
 
         int count = 1;
         PdfImageHelper helper = new( );

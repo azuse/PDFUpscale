@@ -47,6 +47,5 @@ public static class Program
             directory.GetFiles("*.png", SearchOption.AllDirectories).ToList( ),
             (image) => Console.WriteLine($"{Text.UpscaleImage} {image.Name}")
         );
-
     }
 }

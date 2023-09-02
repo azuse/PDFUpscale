@@ -29,4 +29,7 @@ public class Options
 
     [Option('t', "thread", Default = 1, Required = false, HelpText = "图片处理并发数")]
     public int Thread { get; set; } = 1;
+
+    [Option("merge-only", Default = false, Required = false, HelpText = "是否仅合并图像")]
+    public bool MergeOnly { get; set; } = false;
 }
