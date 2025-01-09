@@ -1,4 +1,4 @@
-﻿# PDFUpscale
+﻿# PDFUpscale 
 
 基于 [Real-ESRGAN] 的 PDF 图像超分辨率命令行程序。
 
